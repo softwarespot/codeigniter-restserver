@@ -650,8 +650,8 @@ abstract class REST_Controller extends CI_Controller {
             {
                 $this->_log_request();
             }
-            
-            // fix cross site to option request error 
+
+            // fix cross site to option request error
             if($this->request->method == 'options') {
                 exit;
             }
@@ -942,7 +942,7 @@ abstract class REST_Controller extends CI_Controller {
                         // If it is truly HTML, it wont want any XML
                         return $format;
                     }
-                    else if ($format === 'xml' && strpos($http_accept, 'html') === FALSE)
+                    elseif ($format === 'xml' && strpos($http_accept, 'html') === FALSE)
                     {
                         // If it is truly XML, it wont want any HTML
                         return $format;
@@ -1471,7 +1471,7 @@ abstract class REST_Controller extends CI_Controller {
                 $this->_put_args = json_decode($this->input->raw_input_stream);
             }
         }
-        else if ($this->input->method() === 'put')
+        elseif ($this->input->method() === 'put')
         {
            // If no filetype is provided, then there are probably just arguments
            $this->_put_args = $this->input->input_stream();
@@ -1521,7 +1521,7 @@ abstract class REST_Controller extends CI_Controller {
         {
             $this->request->body = $this->input->raw_input_stream;
         }
-        else if ($this->input->method() === 'patch')
+        elseif ($this->input->method() === 'patch')
         {
             // If no filetype is provided, then there are probably just arguments
             $this->_patch_args = $this->input->input_stream();
